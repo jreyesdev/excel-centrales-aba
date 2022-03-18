@@ -23,6 +23,3 @@ if (count($_FILES) && validaExtension()) {
     // Agregar mensaje de error a variable $_SESSION
     setMsgError('Extension de archivo no permitido');
 }
-
-// REDIRECCION DE RESPUESTA
-header('location: ../');
