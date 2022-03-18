@@ -1,20 +1,28 @@
 <?php
 session_start();
-require_once 'funcion.php';
-if(count($_FILES) && validaExtension()){
-    
-    
+
+require_once 'funciones.php';
+
+if (count($_FILES) && validaExtension()) {
+
+    // Mueve archivo subido
+    $ruta = moverArchivo('');
+    // Renombrar a centrales.xlsx y mueve a raiz del proyecto
+    $ruta = renombarArchivo($ruta, 'centrales');
     // Validar columnas segun tipo de datos
-    // Copiar a raiz del proyecto
-    // Renombrar a centrales.xlsx
-    echo '<pre>';
-    print_r($_FILES);
-    echo '</pre>';
-    exit;
-}else{
+    // Mensaje de resultado
+    setMsgSuccess('Archivo cargado');
+    // echo '<pre>';
+    // print_r('ruta: ');
+    // print_r(pathinfo($ruta));
+    // print_r('<br>');
+    // print_r($_FILES);
+    // echo '</pre>';
+    // exit;
+} else {
     // Agregar mensaje de error a variable $_SESSION
-    $_SESSION['error'] = 'Extension de archivo no permitido';
+    setMsgError('Extension de archivo no permitido');
 }
 
 // REDIRECCION DE RESPUESTA
-header('location: /excel2');
+header('location: ../');
