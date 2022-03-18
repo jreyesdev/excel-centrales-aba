@@ -50,6 +50,7 @@ function renombarArchivo(string $dir, string $newName)
 function setMsgError(string $msg)
 {
 	$_SESSION['msg']['error'] = $msg;
+	redirect();
 }
 
 /**
@@ -60,6 +61,7 @@ function setMsgError(string $msg)
 function setMsgSuccess(string $msg)
 {
 	$_SESSION['msg']['success'] = $msg;
+	redirect();
 }
 
 /**
@@ -79,4 +81,15 @@ function mensajesDeSession()
 		$_SESSION['msg'] = [];
 	}
 	return $msg;
+}
+
+/**
+ * Redirige a pag principal
+ * @param string $url
+ * @return void
+ */
+function redirect(string $url = '')
+{
+	header('location: ../' . $url);
+	die();
 }
