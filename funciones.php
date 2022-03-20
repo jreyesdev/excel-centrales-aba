@@ -43,6 +43,19 @@ function renombarArchivo(string $dir, string $newName)
 }
 
 /**
+ * Elimina archivo antiguo de centrales.xlsx/xls
+ */
+function eliminaArchivoCentrales()
+{
+	if (file_exists('centrales.xls')) {
+		unlink('centrales.xls');
+	}
+	if (file_exists('centrales.xlsx')) {
+		unlink('centrales.xlsx');
+	}
+}
+
+/**
  * Crea mensaje de error en variable global $_SESSION
  * @param string $msg
  * @return void
