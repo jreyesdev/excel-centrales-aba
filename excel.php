@@ -4,7 +4,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 require_once 'PHPExcel/Classes/PHPExcel.php';
 
-class ClientesAba
+class ArchivoExcel
 {
     /** @var PHPExcel */
     public static $excel;
@@ -15,31 +15,16 @@ class ClientesAba
     /** @var array */
     public static $cols = [];
 
+    /**
+     * Lee archivo excel segun ruta
+     * @param string $ruta
+     */
     public static function leerArchivo(string $ruta)
     {
+        if (!file_exists($ruta)) {
+            setMsgError('Archivo no existe.');
+        }
         self::$excel = PHPExcel_IOFactory::load($ruta);
-    }
-
-    /**
-     * Obtiene datos de la hoja 1
-     * @return array
-     */
-    public static function getSheetAbaPlus()
-    {
-        self::$cols = ['central' => 'A', 'equipo' => 'F', 'unidad' => 'H'];
-        self::$sheet = self::$excel->setActiveSheetIndex(0);
-        return self::getSheetData();
-    }
-
-    /**
-     * Obtiene datos de la hoja 2
-     * @return array
-     */
-    public static function getSheetITP()
-    {
-        self::$cols = ['central' => 'A', 'movimiento' => 'F', 'unidad' => 'I'];
-        self::$sheet = self::$excel->setActiveSheetIndex(1);
-        return self::getSheetData();
     }
 
     /**
