@@ -21,13 +21,7 @@ class Centrales extends ArchivoExcel
         self::leerArchivo(self::$archivo);
         self::$cols = ['codigo' => 'A', 'nombre' => 'B', 'region' => 'C', 'estado' => 'D'];
         self::$sheet = self::$excel->setActiveSheetIndex(0);
-        $data = self::getSheetData();
-        $centrales = [];
-        foreach ($data as $c) {
-            $centrales[$c['codigo']] = $c;
-        }
-        ksort($centrales);
-        return $centrales;
+        return self::getSheetData();
     }
 
     /**
