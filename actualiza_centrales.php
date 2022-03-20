@@ -4,7 +4,8 @@ session_start();
 require_once 'funciones.php';
 
 if (count($_FILES) && validaExtension()) {
-
+    // Elimina archivo de centrales
+    eliminaArchivoCentrales();
     // Mueve archivo subido
     $ruta = moverArchivo('');
     // Renombrar a centrales.xlsx y mueve a raiz del proyecto
