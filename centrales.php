@@ -19,7 +19,15 @@ class Centrales extends ArchivoExcel
     {
         self::setArchivoCentrales();
         self::leerArchivo(self::$archivo);
-        self::$cols = ['codigo' => 'A', 'nombre' => 'B', 'region' => 'C', 'estado' => 'D'];
+        self::$cols = [
+            'codigo' => 'A',
+            'nombre' => 'B',
+            'region' => 'C',
+            'estado' => 'D',
+            'municipio' => 'E',
+            'cant_mdu' => 'F',
+            'puertos' => 'G'
+        ];
         self::$sheet = self::$excel->setActiveSheetIndex(0);
         return self::getSheetData();
     }
