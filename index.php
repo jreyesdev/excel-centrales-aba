@@ -106,24 +106,41 @@ for($i=1;$i <= $numerofila;$i++){
 	<br>
 	<br>
 
+	<?php
+	if (isset($_SESSION['file']) && file_exists($_SESSION['file'])) :
+		$fileInfo = pathinfo($_SESSION['file']);
+		$_SESSION['file'] = null;
+	?>
+		<div class="card-header">
+			<b>RESUMEN</b>
+			<p>Archivo generado: <?= $fileInfo['basename'] ?></p>
+		</div>
+		<div class="formulario">
+			<a href="resultado/<?= $fileInfo['basename'] ?>">Descargar: <?= $fileInfo['basename'] ?></a>
+		</div>
+		<br>
+		<br>
+	<?php endif; ?>
 
 	<div class="card-header">
-		<b>RESUMEN</b>
+		<b>ULTIMOS ARCHIVOS GENERADOS</b>
 	</div>
 	<div class="formulario">
-		<form action="index_cruce.php" class="formulariocompleto" method="post" enctype="multipart/form-data">
-			<div class="row">
-				<div class="col-lg-2">
-					<input class="btn btn-danger" style="width:100%" type="submit" value="Resultado" class="form-control" name="enviar">
-				</div>
-				<div class="col-lg-5" id="div_table"><br>
-				</div>
-			</div>
-		</form>
+		<ul>
+			<?php
+			$files = archivosDirectorioResultado();
+			if (count($files)) :
+				foreach ($files as $file) :
+			?>
+					<li>
+						<a href="resultado/<?= $file ?>"><?= $file ?></a>
+					</li>
+			<?php
+				endforeach;
+			endif;
+			?>
+		</ul>
 	</div>
-	<br>
-	<br>
-
 
 </body>
 
