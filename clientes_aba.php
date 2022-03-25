@@ -10,7 +10,13 @@ class ClientesAba extends ArchivoExcel
      */
     public static function getSheetAbaPlus()
     {
-        self::$cols = ['central' => 'A', 'equipo' => 'F', 'unidad' => 'H'];
+        self::$cols = [
+            'central' => 'A',
+            'cedula' => 'C',
+            'aba' => 'E',
+            'equipo' => 'F',
+            'unidad' => 'H'
+        ];
         self::$sheet = self::$excel->setActiveSheetIndex(0);
         return self::getSheetData();
     }
@@ -21,7 +27,13 @@ class ClientesAba extends ArchivoExcel
      */
     public static function getSheetITP()
     {
-        self::$cols = ['central' => 'A', 'movimiento' => 'F', 'unidad' => 'I'];
+        self::$cols = [
+            'central' => 'A',
+            'cedula' => 'C',
+            'movimiento' => 'F',
+            'status' => 'G',
+            'unidad' => 'I'
+        ];
         self::$sheet = self::$excel->setActiveSheetIndex(1);
         return self::getSheetData();
     }
