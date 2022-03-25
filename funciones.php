@@ -106,3 +106,34 @@ function redirect(string $url = '')
 	header('location: ../' . $url);
 	die();
 }
+
+/**
+ * Devuelve array ordenado descendentemente por nombre
+ * @return array
+ */
+function archivosDirectorioResultado(): array
+{
+	// Archivos excel a retornar
+	$files = [];
+	// Directorio a consultar
+	$dir = 'resultado/';
+	// Valida si existe el directorio
+	if (is_dir($dir)) {
+		// Valida si puede leer el directorio
+		if ($dh = opendir($dir)) {
+			// Lee todos los archivos que contiene el directorio
+			while (($file = readdir($dh)) !== false) {
+				$fileInfo = pathinfo($dir . $file);
+				// Valida que la extension sea xlsx o xls
+				if (preg_match('/^(xls|xlsx)$/', $fileInfo['extension'])) {
+					// Agrega al arreglo
+					$files[] = $fileInfo['basename'];
+				}
+			}
+			closedir($dh);
+		}
+	}
+	// Ordena descendentemente
+	rsort($files);
+	return $files;
+}
