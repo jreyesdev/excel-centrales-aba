@@ -1,0 +1,61 @@
+Contenido del archivo detalle mdu (ejemplo)
+
+-- Columnna G
+Todo lo que se repita en las dos tablas del tipo RES
+
+-- Columnna H
+Todo lo que se repita en las dos tablas del tipo NORES
+
+-- Columnna I
+Suma de las columnas G y H
+
+-- Columnna J
+Cantidad de clientes RES y ABA (E=ABA y H=R) Del archivo clientes aba plus.
+
+-- Columnna K
+Cantidad de clientes NORES y ABA (E=ABA y H=NR) del archivo clientes aba plus.
+
+-- Columnna L
+Suma de las columnas J y K
+
+-- Columnna M
+Es igual a los puertos habilitados del archivo centrales.
+
+-- Columnna N
+Archivo IABA
+columnas STATUS y UNIDAD (G=399 y I=R)
+
+-- Columnna O
+Archivo IABA
+columnas STATUS y UNIDAD (G=399 y I=NR)
+
+-- Columnna P
+Suma de columnas N y O
+
+-- Columnna Q
+Archivo IABA
+columnas STATUS y UNIDAD (G=300 y I=R)
+
+-- Columnna R
+Archivo IABA
+columnas STATUS y UNIDAD (G=300 y I=NR)
+
+-- Columnna S
+Suma de columnas Q y R
+
+-- Columnna T
+Combinacion de ambos archivos CLIENTES ABA PLUS y IABA ITP
+y los que no se repitan en la tabla IABA ITP, es decir
+los que aparecen solo en CLIENTES ABA PLUS.
+Filtrar por central y contar las cedulas.
+
+-- Columnna U
+Solo posee tres valores RES, NORES y MIXTO.
+Corresponde a las columnas RES y NORES la cual estas tengan valor mayor a 0
+el valor de esta columna sera MIXTO.
+
+-- Columnna V
+
+-- Columnna W
+-- Columnna x
+
