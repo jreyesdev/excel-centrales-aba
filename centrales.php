@@ -26,7 +26,9 @@ class Centrales extends ArchivoExcel
             'estado' => 'D',
             'municipio' => 'E',
             'cant_mdu' => 'F',
-            'puertos' => 'G'
+            'puertos' => 'G',
+            'u_nuevos' => 'H',
+            'matriz' => 'I',
         ];
         self::$sheet = self::$excel->setActiveSheetIndex(0);
         return self::getSheetData();
