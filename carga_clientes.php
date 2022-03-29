@@ -49,20 +49,20 @@ if (count($_FILES) && validaExtension()) {
             $res = resultadoCentral($aba_plus_itp[$cod]);
             if ($res['V'] !== 'NULL') {
                 $datos[] = [
-                    'A' => $cen['codigo'],
-                    'B' => $cen['nombre'],
-                    'C' => $cen['region'],
-                    'D' => $cen['estado'],
-                    'E' => $cen['municipio'],
-                    'F' => $cen['cant_mdu'],
-                    'G' => $cen['puertos'],
+                    'A' => trim($cen['codigo']),
+                    'B' => trim($cen['nombre']),
+                    'C' => trim($cen['region']),
+                    'D' => trim($cen['estado']),
+                    'E' => trim($cen['municipio']),
+                    'F' => trim($cen['cant_mdu']),
+                    'G' => trim($cen['puertos']),
                     'H' => $res['H'],
                     'I' => $res['I'],
                     'J' => $res['H'] + $res['I'],
                     'K' => $res['K'],
                     'L' => $res['L'],
                     'M' => $res['K'] + $res['L'],
-                    'N' => $cen['puertos'],
+                    'N' => trim($cen['puertos']),
                     'O' => $res['O'],
                     'P' => $res['P'],
                     'Q' => $res['O'] + $res['P'],
@@ -70,10 +70,12 @@ if (count($_FILES) && validaExtension()) {
                     'S' => $res['S'],
                     'T' => $res['R'] + $res['S'],
                     'U' => $res['U'],
-                    'V' => $res['V'],
-                    'W' => $cen['u_nuevos'],
-                    'X' => $cen['matriz'],
-                    'Y' => $cen['u_nuevos'] + $cen['matriz'],
+                    'V' => trim($cen['segmento']),
+                    'W' => trim($cen['u_nuevos']),
+                    'X' => trim($cen['matriz']),
+                    'Y' => trim($cen['u_nuevos']) + trim($cen['matriz']),
+                    'Z' => trim($cen['estatus']),
+                    'AA' => trim($cen['t_servicio'])
                 ];
             }
         }
