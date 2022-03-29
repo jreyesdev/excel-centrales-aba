@@ -78,6 +78,8 @@ class DetalleMDU extends ArchivoExcel
         'W' => 'USUARIOS NUEVOS',
         'X' => 'USUARIOS POR MATRIZ DE TRANSFERENCIA',
         'Y' => 'POTENCIALIDAD GGMM',
+        'Z' => 'ESTATUS',
+        'AA' => 'TIPO DE SERVICIO'
     ];
 
     /**
