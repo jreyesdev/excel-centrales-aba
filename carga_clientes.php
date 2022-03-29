@@ -47,41 +47,41 @@ if (count($_FILES) && validaExtension()) {
     foreach ($centrales as $cod => $cen) {
         if (isset($aba_plus_itp[$cod])) {
             $res = resultadoCentral($aba_plus_itp[$cod]);
-            if ($res['V'] !== 'NULL') {
-                $datos[] = [
-                    'A' => $cen['codigo'],
-                    'B' => $cen['nombre'],
-                    'C' => $cen['region'],
-                    'D' => $cen['estado'],
-                    'E' => $cen['municipio'],
-                    'F' => $cen['cant_mdu'],
-                    'G' => $cen['puertos'],
-                    'H' => $res['H'],
-                    'I' => $res['I'],
-                    'J' => $res['H'] + $res['I'],
-                    'K' => $res['K'],
-                    'L' => $res['L'],
-                    'M' => $res['K'] + $res['L'],
-                    'N' => $cen['puertos'],
-                    'O' => $res['O'],
-                    'P' => $res['P'],
-                    'Q' => $res['O'] + $res['P'],
-                    'R' => $res['R'],
-                    'S' => $res['S'],
-                    'T' => $res['R'] + $res['S'],
-                    'U' => $res['U'],
-                    'V' => $res['V'],
-                    'W' => $cen['u_nuevos'],
-                    'X' => $cen['matriz'],
-                    'Y' => $cen['u_nuevos'] + $cen['matriz'],
-                ];
-            }
+            $datos[] = [
+                'A' => trim($cen['codigo']),
+                'B' => trim($cen['nombre']),
+                'C' => trim($cen['region']),
+                'D' => trim($cen['estado']),
+                'E' => trim($cen['municipio']),
+                'F' => trim($cen['cant_mdu']),
+                'G' => trim($cen['puertos']),
+                'H' => $res['H'],
+                'I' => $res['I'],
+                'J' => $res['H'] + $res['I'],
+                'K' => $res['K'],
+                'L' => $res['L'],
+                'M' => $res['K'] + $res['L'],
+                'N' => trim($cen['puertos']),
+                'O' => $res['O'],
+                'P' => $res['P'],
+                'Q' => $res['O'] + $res['P'],
+                'R' => $res['R'],
+                'S' => $res['S'],
+                'T' => $res['R'] + $res['S'],
+                'U' => $res['U'],
+                'V' => trim($cen['segmento']),
+                'W' => trim($cen['u_nuevos']),
+                'X' => trim($cen['matriz']),
+                'Y' => intval(trim($cen['u_nuevos'])) + intval(trim($cen['matriz'])),
+                'Z' => trim($cen['estatus']),
+                'AA' => trim($cen['t_servicio'])
+            ];
         }
     }
     // Guarda los datos y devuelve la ruta del archivo guardado
     $archivoRuta = DetalleMDU::guardaArchivo($datos);
 
-    error_reporting(E_ALL);
+    error_reporting(E_ERROR | E_PARSE);
 
     if ($archivoRuta) {
         $_SESSION['file'] = $archivoRuta;

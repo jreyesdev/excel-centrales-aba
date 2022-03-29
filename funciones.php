@@ -181,7 +181,7 @@ function resultadoCentral(array $central): array
 	// IABA pendiente por crear
 	$resp['U'] = pendienteIABA($central);
 	// Segmento VPPS
-	$resp['V'] = segmentoVPPS($resp);
+	// $resp['V'] = segmentoVPPS($resp);
 	return $resp;
 }
 
