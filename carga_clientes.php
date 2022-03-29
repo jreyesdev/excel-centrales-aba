@@ -81,7 +81,7 @@ if (count($_FILES) && validaExtension()) {
     // Guarda los datos y devuelve la ruta del archivo guardado
     $archivoRuta = DetalleMDU::guardaArchivo($datos);
 
-    error_reporting(E_ALL);
+    error_reporting(E_ERROR | E_PARSE);
 
     if ($archivoRuta) {
         $_SESSION['file'] = $archivoRuta;
